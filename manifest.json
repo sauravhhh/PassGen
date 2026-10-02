@@ -1,0 +1,1 @@
+{"background_color":"#111111","description":"Simple secure password generator","display":"standalone","icons":[{"sizes":"192x192","src":"icon-192.png","type":"image/png"},{"sizes":"512x512","src":"icon-512.png","type":"image/png"}],"name":"PassGen","short_name":"PassGen","start_url":".","theme_color":"#111111"}
