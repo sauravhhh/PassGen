@@ -38,19 +38,21 @@ main{flex:1; width:100%; max-width:520px; margin:0 auto; padding:20px 16px 32px;
   background:var(--surface); border:1px solid var(--border);
   border-radius:16px; padding:20px; margin-bottom:16px;
 }
-.output-row{display:flex; gap:10px; align-items:stretch;}
+.output-row{display:flex; align-items:stretch;}
+.gen-card h2{font-size:23px; margin:0; font-weight:800; display:flex; align-items:center; gap:10px;}
+.gen-label{font-size:16px; font-weight:700; margin:20px 0 8px;}
 #pwd{
   flex:1; min-width:0; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:19px; word-break:break-all; line-height:1.5;
-  background:var(--bg); border:1px solid var(--border); border-radius:12px;
-  padding:14px 12px; color:var(--text);
+  font-size:20px; font-weight:700; word-break:break-all; line-height:1.5;
+  background:var(--bg); border:1px solid var(--border); border-right:none; border-radius:12px 0 0 12px;
+  padding:14px 12px; color:#d92b2b; cursor:pointer;
 }
-.icon-btn{
-  flex:0 0 52px; border:1px solid var(--border); border-radius:12px;
-  background:var(--bg); color:var(--text); font-size:20px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center; min-height:52px;
+#refresh{
+  flex:0 0 auto; border:none; border-radius:0 12px 12px 0;
+  background:#6b7280; color:#fff; font-size:16px; font-weight:600; cursor:pointer;
+  display:flex; align-items:center; gap:8px; padding:0 18px; min-height:52px;
 }
-.icon-btn:active{transform:scale(.96);}
+#refresh:active{transform:scale(.97);}
 .strength{margin-top:12px; display:flex; align-items:center; gap:10px;}
 .strength .bar{flex:1; height:6px; border-radius:3px; background:var(--border); overflow:hidden;}
 .strength .bar i{display:block; height:100%; width:0; border-radius:3px; transition:width .25s;}
@@ -74,7 +76,7 @@ input[type=range]{width:100%; accent-color:var(--accent); margin:6px 0 2px;}
 .switch input:checked + .slider:before{transform:translateX(22px);}
 #gen{
   width:100%; padding:16px; font-size:17px; font-weight:700; border:none; border-radius:14px;
-  background:var(--accent); color:var(--on-accent); cursor:pointer; margin-top:4px; min-height:56px;
+  background:#159a55; color:#fff; cursor:pointer; margin-top:4px; min-height:56px;
 }
 #gen:active{transform:scale(.98);}
 .hint{font-size:13px; color:var(--muted); text-align:center; margin-top:14px; line-height:1.5;}
@@ -93,10 +95,12 @@ footer{text-align:center; padding:18px; font-size:13px; color:var(--muted); bord
   <h1>PassGen</h1>
 </header>
 <main>
-  <div class="card">
+  <div class="card gen-card">
+    <h2>🔑 Secure Password Generator</h2>
+    <p class="gen-label">Generated Secure Password</p>
     <div class="output-row">
-      <div id="pwd" aria-live="polite"></div>
-      <button class="icon-btn" id="copy" title="Copy password" aria-label="Copy password">⧉</button>
+      <div id="pwd" aria-live="polite" title="Tap to copy"></div>
+      <button id="refresh" title="Generate a new password">⟳ Refresh</button>
     </div>
     <div class="strength">
       <div class="bar"><i id="sbar"></i></div>
@@ -118,8 +122,8 @@ footer{text-align:center; padding:18px; font-size:13px; color:var(--muted); bord
     <div class="row"><label>Symbols (#$&amp;…)</label><span class="switch"><input type="checkbox" id="syms" checked><span class="slider"></span></span></div>
   </div>
 
-  <button id="gen">Generate Password</button>
-  <p class="hint">Generated on your device with cryptographically secure randomness. Nothing is sent anywhere.</p>
+  <button id="gen">Generate New Password</button>
+  <p class="hint">Tap the password to copy it. Generated on your device with cryptographically secure randomness. Nothing is sent anywhere.</p>
 </main>
 <footer>Made with ❤️ by sauravhhh</footer>
 <div id="toast">Copied</div>
