@@ -1,4 +1,4 @@
-var CACHE = 'passgen-v1';
+var CACHE = 'passgen-v2';
 var ASSETS = ['./', 'index.html', 'app.js', 'manifest.json',
   'icon-192.png', 'icon-512.png', 'favicon-32.png', 'apple-touch-icon.png'];
 
