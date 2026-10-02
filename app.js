@@ -118,13 +118,14 @@ if(typeof window !== 'undefined' && typeof document !== 'undefined'){
     sbar.style.background = strengthColor(label);
   }
   $('gen').addEventListener('click', refresh);
+  $('refresh').addEventListener('click', refresh);
   lenEl.addEventListener('input', refresh);
   ['upper','lower','nums','syms'].forEach(function(id){
     $(id).addEventListener('change', refresh);
   });
-  $('copy').addEventListener('click', function(){
+  pwdEl.addEventListener('click', function(){
     var t = pwdEl.textContent;
-    if(!t) return;
+    if(!t || !buildCharset(opts())) return;
     function done(){ showToast('Copied'); }
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(t).then(done, function(){ fallback(); });
